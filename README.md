@@ -45,6 +45,15 @@ PRABHADRI AI is a modern chatbot application designed with a clean interface and
 - **Typing Indicator**  
   Displays an AI typing state before the response appears.
 
+- **Conversation Management** 
+  Easily rename or delete past conversations to keep your workspace clean and organized.
+
+- **Real-Time History Search** 
+  Instantly filter through your entire chat history by searching for specific words in titles or messages.
+
+- **Dynamic Response Modes** 
+  Switch between multiple intelligence levels to get the exact depth of answer you need.
+
 - **Dark Modern UI**  
   Clean chatbot interface with a professional look.
 
