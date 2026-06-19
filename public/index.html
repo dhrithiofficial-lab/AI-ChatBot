@@ -14,10 +14,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <div id="glareEffect" class="ambient-glare"></div>
     <div class="container">
-
+        <button id="openSidebarBtn" class="floating-toggle" title="Open Sidebar">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
         <aside class="sidebar">
+            <div class="sidebar-brand-header">
+                <img src="assets/images/logo.JPEG" alt="PRABHADRI Mini Logo" class="sidebar-mini-logo">
+                <h2 class="sidebar-brand-text">PRABHADRI AI</h2>
+                
+                <button id="closeSidebarBtn" class="icon-btn" style="margin-left: auto;" title="Close Sidebar">
+                    <span class="material-symbols-outlined">left_panel_close</span>
+                </button>
+            </div>
             <button id="newChatBtn" class="primary-btn">
                 <span class="material-symbols-outlined">add</span>
                 New Chat

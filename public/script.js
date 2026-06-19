@@ -154,6 +154,8 @@ function renderChatList(searchTerm = "") {
 }
 
 function loadChat(chatId) {
+    const glare = document.getElementById("glareEffect");
+    if (glare) glare.classList.remove("active-welcome");
     const chat = chats.find(c => c.id === chatId);
     if (!chat) return;
     
@@ -363,6 +365,8 @@ async function sendMessage() {
 // UI Rendering
 // ==========================================
 function showWelcomeScreen() {
+    const glare = document.getElementById("glareEffect");
+    if (glare) glare.classList.add("active-welcome");
     const currentHour = new Date().getHours();
     let greeting = "Welcome";
 
@@ -378,10 +382,8 @@ function showWelcomeScreen() {
 
     chatBox.innerHTML = `
         <div class="welcome-screen" id="welcomeScreen">
-            <div class="welcome-icon">
-                <span class="material-symbols-outlined" style="font-size: 40px; color: var(--accent);">
-                    hub
-                </span>
+            <div class="welcome-logo-container">
+                <img src="assets/images/logo.JPEG" alt="PRABHADRI Logo" class="welcome-logo">
             </div>
             <h1 class="welcome-title" style="margin-bottom: 5px;">PRABHADRI AI</h1>
             <p style="color: var(--accent); font-weight: 500; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px;">
@@ -530,7 +532,41 @@ if (searchInput) {
     });
 }
 
-newChatBtn.addEventListener("click", createNewChat);
+newChatBtn.addEventListener("click", () => {
+    // 1. Trigger the intense glare burst
+    const glare = document.getElementById("glareEffect");
+    if (glare) {
+        // Remove and re-add the class to restart the animation if clicked rapidly
+        glare.classList.remove("burst");
+        void glare.offsetWidth; // This forces the browser to reset the animation
+        glare.classList.add("burst");
+        
+        // Remove the burst class after 1.5s so it returns to the ambient breathe
+        setTimeout(() => {
+            glare.classList.remove("burst");
+        }, 1500);
+    }
+
+    // 2. Call your existing function to handle the rest!
+    createNewChat();
+});
+
+// ==========================================
+// Sidebar Toggle Logic
+// ==========================================
+const closeSidebarBtn = document.getElementById("closeSidebarBtn");
+const openSidebarBtn = document.getElementById("openSidebarBtn");
+const sidebar = document.querySelector(".sidebar");
+
+if (closeSidebarBtn && openSidebarBtn && sidebar) {
+    closeSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.add("collapsed");
+    });
+
+    openSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.remove("collapsed");
+    });
+}
 
 // Init
 loadChats();
