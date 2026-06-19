@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="prabhadri.JPEG" alt="PRABHADRI AI Logo" width="120" style="border-radius: 50%;" />
+  <img src="prabhadri.jpeg" alt="PRABHADRI AI Logo" width="120" style="border-radius: 50%;" />
 
   # 🚀 PRABHADRI AI
 
@@ -14,7 +14,7 @@
 <br>
 
 <div align="center">
-  <img src="frontview.JPEG" alt="PRABHADRI AI UI Screenshot" width="850" />
+  <img src="frontview.jpeg" alt="PRABHADRI AI UI Screenshot" width="850" />
 </div>
 
 ---
