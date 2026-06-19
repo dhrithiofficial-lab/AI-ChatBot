@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <button id="newChatBtn" class="primary-btn">
+                <span class="material-symbols-outlined">add</span>
+                New Chat
+            </button>
+
+            <div class="search-container">
+                <span class="material-symbols-outlined search-icon">search</span>
+                <input type="text" id="searchInput" placeholder="Search history..." autocomplete="off">
+            </div>
+
+            <div id="chatList" class="chat-list">
+                </div>
+
+            <div id="chatList" class="chat-list">
+                </div>
+            
+            <div class="sidebar-footer">
+                <button id="settingsBtn" class="chat-item settings-btn">
+                    <span class="material-symbols-outlined">settings</span>
+                    Settings
+                </button>
+            </div>
+        </aside>
+
+        <main class="chat-section">
+
+            <header class="chat-header">
+                <h2>JARVIS</h2>
+                <button id="themeToggle" class="icon-btn" style="margin-left: 15px;">
+                    <span class="material-symbols-outlined" id="themeIcon">light_mode</span>
+                </button>
+            </header>
+
+            <div id="chatBox" class="chat-box">
+                </div>
+
+            <footer class="input-section">
+                <div id="imagePreviewContainer" class="image-preview-container">
+                    <img id="imagePreview" src="" alt="Upload Preview">
+                    <button id="removeImageBtn" class="remove-image-btn" title="Remove Image">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+
+                <div class="input-wrapper">
+                    <select id="modeSelect" class="mode-dropdown">
+                        <option value="quick">⚡ Quick</option>
+                        <option value="think">🧠 Think</option>
+                        <option value="research">🔍 Research</option>
+                    </select>
+
+                    <input type="file" id="fileInput" accept="image/jpeg, image/png, image/webp" style="display: none;">
+                    
+                    <button id="attachBtn" class="icon-btn" title="Attach Image">
+                        <span class="material-symbols-outlined">attach_file</span>
+                    </button>
+
+                    <button id="voiceBtn" class="icon-btn" title="Voice Input">
+                        <span class="material-symbols-outlined">mic</span>
+                    </button>
+
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Message the AI..."
+                        autocomplete="off"
+                    >
+
+                    <button id="sendBtn" class="icon-btn send-btn" title="Send Message">
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </div>
+            </footer>
+        </main>
+
+    </div>
+
+    <div id="settingsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button id="closeSettingsBtn" class="icon-btn" title="Close">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="voiceSelect" class="modal-label">AI Speaker Voice</label>
+                <select id="voiceSelect" class="settings-dropdown"></select>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

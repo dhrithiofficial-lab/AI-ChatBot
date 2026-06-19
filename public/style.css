@@ -1,0 +1,622 @@
+/* =========================================
+   Theme Variables & Reset (Premium Glass Palette)
+========================================= */
+:root {
+    --bg-main: #0b0f19; /* Deep tech midnight blue */
+    --bg-sidebar: rgba(15, 23, 42, 0.4); /* Frosted glass */
+    --bg-input: rgba(30, 41, 59, 0.6);
+    --bg-bot-msg: rgba(30, 41, 59, 0.6);
+    --bg-user-msg: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #00d2ff;
+    --accent-hover: #00b8e6;
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg-main);
+    /* Ambient Glow Effects in the background */
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(58, 123, 213, 0.08), transparent 25%);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* =========================================
+   Sidebar Styling (Glassmorphism)
+========================================= */
+.sidebar {
+    width: 260px;
+    background: var(--bg-sidebar);
+    backdrop-filter: blur(12px); /* Frosted glass blur */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-light);
+    box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background: rgba(0, 210, 255, 0.05);
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   Sidebar Search Bar
+========================================= */
+.search-container {
+    margin-top: 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--text-muted);
+    font-size: 18px;
+}
+
+#searchInput {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 10px 10px 10px 36px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+#searchInput:focus {
+    border-color: var(--accent);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.1);
+}
+
+#searchInput::placeholder {
+    color: var(--text-muted);
+}
+
+.primary-btn:hover {
+    background: rgba(0, 210, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.chat-list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.chat-item {
+    padding: 12px;
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.chat-item:hover, .chat-item.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.chat-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    padding-right: 8px;
+}
+
+.chat-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0; /* Hidden */
+    transition: opacity 0.2s ease;
+}
+
+/* Show buttons when hovering over the chat item */
+.chat-item:hover .chat-actions {
+    opacity: 1; 
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.action-btn:hover {
+    color: var(--accent);
+    background: rgba(0, 210, 255, 0.1);
+}
+
+.action-btn.delete-btn:hover {
+    color: #ff4a4a;
+    background: rgba(255, 74, 74, 0.1);
+}
+
+
+/* =========================================
+   Main Chat Section
+========================================= */
+.chat-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 18px;
+    font-weight: 600;
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.chat-box {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   Welcome Screen Animations
+========================================= */
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.welcome-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    /* Animated Gradient Text */
+    background: linear-gradient(to right, #00d2ff, #3a7bd5, #00d2ff);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 3s linear infinite;
+    margin: 15px 0;
+    letter-spacing: -1px;
+}
+
+.welcome-subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease-out 0.4s forwards;
+}
+
+.welcome-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+}
+
+/* =========================================
+   Message Bubbles
+========================================= */
+.message {
+    max-width: 80%;
+    padding: 16px 20px;
+    border-radius: 16px;
+    word-wrap: break-word;
+    animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    line-height: 1.6;
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+}
+
+.user-message {
+    background: var(--bg-user-msg);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px; 
+    border: none;
+    box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+}
+
+.bot-message {
+    background: var(--bg-bot-msg);
+    color: var(--text-main);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+/* Markdown Styling */
+.bot-message p { margin-bottom: 12px; }
+.bot-message p:last-child { margin-bottom: 0; }
+.bot-message ul, .bot-message ol { margin-left: 24px; margin-bottom: 12px; }
+.bot-message strong { color: var(--accent); }
+.bot-message pre {
+    background: rgba(0,0,0,0.4);
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 12px 0;
+    border: 1px solid var(--border-light);
+}
+.bot-message code {
+    font-family: monospace;
+    color: #e2e8f0;
+}
+
+/* Audio & Copy Controls */
+.speak-btn, .copy-btn {
+    margin-right: 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.speak-btn:hover, .copy-btn:hover {
+    color: var(--accent);
+    background: rgba(0, 210, 255, 0.1);
+    border-color: rgba(0, 210, 255, 0.2);
+}
+
+/* =========================================
+   Input Section
+========================================= */
+.input-section {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 800px;
+    background: var(--bg-input);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+}
+
+.mode-dropdown {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    padding-right: 8px;
+    border-right: 1px solid var(--border-light);
+}
+
+.mode-dropdown option { background: #1e293b; color: white; }
+
+#messageInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.send-btn {
+    background: var(--bg-user-msg);
+    color: white;
+    box-shadow: 0 4px 15px rgba(58, 123, 213, 0.4);
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(58, 123, 213, 0.6);
+}
+
+/* =========================================
+   Animations
+========================================= */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* =========================================
+   Image Upload & Preview Styling
+========================================= */
+.input-section {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-preview-container {
+    display: none; /* Hidden until image is selected */
+    position: absolute;
+    bottom: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-input);
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    z-index: 100;
+}
+
+#imagePreview {
+    max-height: 120px;
+    border-radius: 8px;
+    display: block;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ff4a4a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.2s ease;
+}
+
+.remove-image-btn:hover {
+    background: #ff2020;
+    transform: scale(1.1);
+}
+
+.user-message img, .bot-message img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   Sidebar Footer & Settings UI
+========================================= */
+.sidebar {
+    justify-content: flex-start; /* Ensure things stack from top */
+}
+
+.chat-list {
+    flex: 1; /* Pushes the footer to the bottom */
+}
+
+.sidebar-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-light);
+}
+
+.settings-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* Modal Overlay (Frosted Glass Background) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(11, 15, 25, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    padding: 24px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+
+.modal-header h3 {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.modal-label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.settings-dropdown {
+    width: 100%;
+    background: var(--bg-main);
+    color: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.settings-dropdown:focus {
+    border-color: var(--accent);
+}
+
+/* =========================================
+   Light Mode Theme Overrides
+========================================= */
+body.light-mode {
+    --bg-main: #f8fafc;
+    --bg-sidebar: rgba(241, 245, 249, 0.8);
+    --bg-input: #ffffff;
+    --bg-bot-msg: #e2e8f0;
+    --bg-user-msg: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-light: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+}
+
+body.light-mode .settings-dropdown {
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+}
