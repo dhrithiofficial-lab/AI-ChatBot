@@ -1,9 +1,11 @@
 <div align="center">
   <img src="prabhadri.jpeg" alt="PRABHADRI AI Logo" width="120" style="border-radius: 50%;" />
 
-  # 🚀 PRABHADRI AI
+  # 🚀 PRABHADRI AI Study Planner
 
-  **A polished AI chatbot built for fast conversations, voice interaction, and a clean modern UI.**
+  **An autonomous, gamified academic copilot designed to transform passive studying into an active learning experience.**
+  
+  *Hackathon Submission: Track 03 - Academic Intelligence & Learning Automation*
 
   ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
   ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
@@ -14,86 +16,49 @@
 <br>
 
 <div align="center">
-  <img src="frontview.jpeg" alt="PRABHADRI AI UI Screenshot" width="850" />
+  <img src="frontview.png" alt="PRABHADRI AI UI Screenshot" width="850" />
 </div>
 
 ---
 
 ## ⚡ Overview
 
-PRABHADRI AI is a modern chatbot application designed with a clean interface and practical AI features. It supports chat history, local storage, voice input, voice output, copy actions, and Gemini-powered responses. The goal of the project is to create a responsive and polished AI assistant experience that feels simple, fast, and interactive.
+PRABHADRI AI is an intelligent academic copilot designed to solve common student challenges like ineffective study planning, exam information overload, and a lack of personalized guidance. Built using advanced web technologies and the Google Gemini API, PRABHADRI acts as a real-time tutor that monitors your progress, tests your knowledge, and holds you accountable.
 
 ---
 
-## ✨ Key Features
+## ✨ Core Features (Prototype Ready)
 
-- **Chat History Sidebar**  
-  Create and switch between multiple chats easily.
+- **🎮 RPG-Style Gamified Dashboard** A subject-specific tracking system where students earn XP, fill progress bars, and level up as they master their focus areas.
 
-- **Persistent Conversations**  
-  Chats are saved in local storage and remain after refresh.
+- **🧠 Autonomous Diagnostic Engine** An AI-driven system that scans chat logs live, detects student learning gaps, and auto-updates a local JSON weakness profile without user intervention.
 
-- **Voice Input**  
-  Speak to the assistant and convert your voice into text.
+- **⏱️ Offline-Resilient Focus Timer & Playlist** An automated study accountability system. Students load a study plan, start a focus timer, and are forced to pass an AI-generated pop-quiz to claim their XP.
 
-- **Voice Output**  
-  Read AI responses aloud using the browser’s speech synthesis.
+- **🏆 Persistent Trophy Case** A sleek, visual badge system stored entirely in local memory to reward students for acing tests and maintaining discipline.
 
-- **Copy Response Button**  
-  Copy chatbot replies with one click.
+- **👁️ Multimodal Vision Integration** Upload a photo of your syllabus, test paper, or textbook diagram, and ask the AI to generate a curriculum or explain the concepts.
 
-- **Typing Indicator**  
-  Displays an AI typing state before the response appears.
+- **🗣️ Integrated Audio Learning** Seamless Speech-to-Text input for hands-free queries, and Text-to-Speech output for auditory learning.
 
-- **Conversation Management** 
-  Easily rename or delete past conversations to keep your workspace clean and organized.
+- **💭 Dynamic Short-Term Memory** Retains immediate 1-turn chat context for fluid, multi-turn academic troubleshooting without losing track of the core topic.
 
-- **Real-Time History Search** 
-  Instantly filter through your entire chat history by searching for specific words in titles or messages.
-
-- **Dynamic Response Modes** 
-  Switch between multiple intelligence levels to get the exact depth of answer you need.
-
-- **Dark Modern UI**  
-  Clean chatbot interface with a professional look.
-
-- **Responsive Layout**  
-  Works well on different screen sizes.
-
-- **Gemini-Powered Backend**  
-  Sends user messages to a Node.js + Express server and gets AI-generated responses.
-
----
-
-## 🧠 Highlights
-
-- Simple and fast chat interaction
-- Multiple chat sessions
-- Voice-based conversation support
-- Local conversation memory
-- Smooth and attractive UI
-- Easy to extend with more AI features later
+- **📊 Exportable Study Reports** Instantly download a `.txt` report of your current level, mastered topics, and earned badges to track long-term progress.
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- HTML5
-- CSS3
-- JavaScript
+- HTML5, CSS3, Vanilla JavaScript (No heavy frameworks, purely optimized for speed)
+- LocalStorage API (Offline-resilient data persistence)
 
 ### Backend
-- Node.js
-- Express.js
+- Node.js & Express.js
 
-### AI
-- Google Gemini API
-
-### Other Libraries
-- `cors`
-- `dotenv`
-- `@google/generative-ai`
+### AI & Integrations
+- Google Gemini API (Multimodal capabilities)
+- Web Speech API (Voice synthesis and recognition)
 
 ---
 
@@ -108,12 +73,9 @@ PRABHADRI-AI/
 ├── server.js
 ├── .env
 ├── package.json
-├── package-lock.json
-├── node_modules/
-├── assets/
-│   └── logo.jpeg
-└── data/
-
+└── assets/
+    └── logo.jpeg
+```
 ## 🚀 Run It Locally
 
 ### 1. Clone the repository
@@ -186,10 +148,11 @@ PORT=3000
 
 Planned enhancements for future versions:
 
-* Advanced Search Across Conversations
-* User Authentication System
-* Cloud-Based Chat Synchronization
-* Enhanced Voice Controls
+* Automated Full-Semester Timeline Generation: Mapping entire semesters to upcoming target exams.
+
+* Proactive "Challenge Me" Quizzing: Automated mock tests triggered instantly and proactively from the student’s logged weak points.
+
+* Cloud-Based Synchronization: Allowing students to maintain their XP and streaks across mobile and desktop devices.
 
 ---
 
@@ -213,7 +176,7 @@ A modern AI-powered assistant designed to provide seamless text and voice intera
 
 ## Developed by
 
-**ADITHYAN S**
+**ADITHYAN S & GIRIDHAR H.S**
 
 ---
 

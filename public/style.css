@@ -48,10 +48,27 @@ body {
     -webkit-backdrop-filter: blur(12px);
     padding: 16px;
     display: flex;
+    height: 100vh;
     flex-direction: column;
     border-right: 1px solid var(--border-light);
     box-shadow: 2px 0 15px rgba(0,0,0,0.2);
     z-index: 10;
+}
+
+#chatList {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Optional: custom scrollbar styling looks great here! */
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-bottom: 2px; /* Gives it some breathing room at the bottom */
+}
+
+#settingsBtn {
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 
 .primary-btn {
@@ -833,4 +850,54 @@ body.light-mode .floating-toggle {
     background: white;
     color: #1e293b;
     border-color: #e2e8f0;
+}
+
+.copy-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a3a3a3;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* Specific styling for the user's copy button */
+.copy-question-btn {
+    background: rgba(0, 0, 0, 0.1); /* Slightly darker for user bubbles */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: 10px; /* Space it away from the text */
+    float: right; /* Push it to the edge of the bubble */
+}
+
+.copy-question-btn:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.user-message {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px; /* Forces space between the text and the button */
+}
+
+.copy-question-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.copy-question-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
